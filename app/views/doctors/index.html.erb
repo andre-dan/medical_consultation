@@ -1,0 +1,37 @@
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>  
+<% end %>
+<h1>Listagem de Médicos</h1>
+<% if @doctors.empty? %>
+  <h2>Não existe nenhum médico cadastrado</h2>
+<% end %>
+<table>
+  <thead>
+    <tr>
+      <td>Nome do Médico</td>
+       <td>CRM</td>
+        <td>CRM-UF</td>
+    </tr>
+    <tbody>
+      <% @doctors.each do |doctor|%>
+        <tr>
+          <td>
+            <%= doctor.name %>
+          </td>
+           <td>
+            <%= doctor.crm %>
+          </td>
+           <td>
+            <%= doctor.crm_uf %>
+          </td>
+          <td>
+            <%= link_to "Editar", '#' %>
+          </td>
+          <td>
+            <%= link_to "Excluir", '#' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </thead>
+</table>
