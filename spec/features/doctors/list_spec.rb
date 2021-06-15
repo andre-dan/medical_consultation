@@ -8,25 +8,25 @@ feature 'Doctors', type: :feature do
     before do
       visit(doctors_path)
     end
-
-    it 'index doctor path' do
-      expect(page).to have_content('Listagem de Médicos')
+    
+    context 'index doctor path' do
+      it { expect(page).to have_content('Listagem de Médicos') }
     end
 
-    it 'see atribute name' do
-      expect(page).to have_content(doctor.name)
+    context 'see atribute name' do
+      it { expect(page).to have_content(doctor.name) }
     end
 
-    it 'see atribute crm' do
-      expect(page).to have_content(doctor.crm)
+    context 'see atribute crm' do
+      it { expect(page).to have_content(doctor.crm) }
     end
 
-    it 'see atribute crm_uf' do
-      expect(page).to have_content(doctor.crm_uf)
+    context 'see atribute crm_uf' do
+      it { expect(page).to have_content(doctor.crm_uf) }
     end
 
-    it 'see links edit and destroy' do
-      expect(page).to have_link('Editar').and have_link('Excluir')
+    context 'see links edit and destroy' do
+      it { expect(page).to have_link('Editar').and have_link('Excluir') }
     end
   end
 end
