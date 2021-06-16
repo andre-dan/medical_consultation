@@ -17,8 +17,8 @@ feature 'Doctors', type: :feature do
       it { expect(page).to have_content(doctor.name) }
     end
 
-    context 'see atribute crm' do
-      it { expect(page).to have_content(doctor.crm) }
+    context 'see atribute crm_number' do
+      it { expect(page).to have_content(doctor.crm_number) }
     end
 
     context 'see atribute crm_uf' do

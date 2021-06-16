@@ -2,6 +2,6 @@
 
 Fabricator(:doctor) do
   name Faker::Name.name
-  crm Faker::Code.npi
+  crm_number Faker::Code.npi
   crm_uf 'CE'
 end
