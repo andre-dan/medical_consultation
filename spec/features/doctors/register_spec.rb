@@ -8,7 +8,7 @@ feature 'Doctors', type: :feature do
       it {expect(page).to have_content("Novo Médico")}
     end
     
-    it 'create doctor name' do
+    it 'create doctor' do
 
       fill_in 'doctor_name', with: 'Andre Torres'
       fill_in 'doctor_crm', with: '123456'
