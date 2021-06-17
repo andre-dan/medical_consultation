@@ -1,0 +1,20 @@
+<% if @doctor.errors.any? %>
+  <ul>
+    <% @doctor.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+<%= form_with model: @doctor do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :crm_number %>
+    <%= f.text_field :crm_number %>
+
+    <%= f.label :crm_uf %>
+    <%= f.text_field :crm_uf %>
+  </div>
+  <p><%= f.submit btn_description %></p>
+<% end %>

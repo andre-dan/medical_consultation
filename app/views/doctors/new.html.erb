@@ -1,21 +1,4 @@
-<% if @doctor.errors.any? %>
-  <ul>
-    <% @doctor.errors.full_messages.each do |error| %>
-      <li><%= error %></li>
-    <% end %>
-  </ul>
-<% end %>
-<h1>Novo Médico</h1>
-<%= form_with model: @doctor do |f| %>
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-
-    <%= f.label :crm_number %>
-    <%= f.text_field :crm_number %>
-
-    <%= f.label :crm_uf %>
-    <%= f.text_field :crm_uf %>
-  </div>
-  <p><%= f.submit 'Adicionar Médico' %></p>
-<% end %>
+<div class="form-devise">
+  <h2>Novo Médico</h2>
+  <%= render partial: 'form', locals: { doctor: @doctor, btn_description: 'Adicionar Médico'  } %>
+</div>

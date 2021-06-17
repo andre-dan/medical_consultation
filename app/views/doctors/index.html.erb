@@ -15,23 +15,13 @@
     <tbody>
       <% @doctors.each do |doctor|%>
         <tr>
-          <td>
-            <%= doctor.name %>
-          </td>
-           <td>
-            <%= doctor.crm_number %>
-          </td>
-           <td>
-            <%= doctor.crm_uf %>
-          </td>
-          <td>
-            <%= link_to "Editar", '#' %>
-          </td>
-          <td>
-            <%= link_to "Excluir", '#' %>
-          </td>
+          <td><%= doctor.name %></td>
+           <td><%= doctor.crm_number %></td>
+           <td><%= doctor.crm_uf %></td>
+          <td><%= link_to "Editar", edit_doctor_path(doctor) %></td>
+          <td><%= link_to "Excluir", doctor, method: :delete, data: { confirm: 'Deseja realmente excluir'} %></td>
         </tr>
       <% end %>
     </tbody>
   </thead>
-</table>
+</table>  
