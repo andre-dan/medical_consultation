@@ -6,6 +6,7 @@ class CreateDoctors < ActiveRecord::Migration[6.1]
       t.string :name
       t.string :crm
       t.string :crm_uf
+      t.references :appointment, null: false, foreign_key: true
 
       t.timestamps
     end
