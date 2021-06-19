@@ -1,0 +1,27 @@
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>  
+<% end %>
+<h1>Listagem de Pacientes</h1>
+<% if @patients.empty? %>
+  <h2>Não existe nenhum paciente cadastrado</h2>
+<% end %>
+<table>
+  <thead>
+    <tr>
+      <td>Nome do Paciente</td>
+       <td>Data de Nascimento </td>
+        <td>CPF</td>
+    </tr>
+    <tbody>
+      <% @patients.each do |patient|%>
+        <tr>
+          <td><%= patient.name %></td>
+           <td><%= patient.birth_date %></td>
+           <td><%= patient.cpf %></td>
+          <td><%= link_to "Editar", edit_patient_path(patient) %></td>
+          <td><%= link_to "Excluir", patient, method: :delete, data: { confirm: 'Deseja realmente excluir'} %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </thead>
+</table>  

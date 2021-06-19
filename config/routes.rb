@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  resources :doctors, except: [:show]
+  resources :doctors, :patients, except: [:show]
   root to: 'doctors#index'
 end
