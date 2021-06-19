@@ -7,14 +7,14 @@ feature 'Doctors', type: :feature do
       visit doctors_path
     end
     
-    xit 'delete doctor', js: true do
+    it 'delete doctor', js: true do
       find(:xpath, '/html/body/table/tbody/tr/td[5]/a').click
       page.driver.browser.switch_to.alert.accept
       3.second
       expect(page).to have_content('Médico excluído com sucesso!')
     end
 
-    xit 'delete only without appointment' do
+    it 'delete only without appointment' do
       patient = Fabricate.create(:patient)
       appointment = Fabricate.create(:appointment)
 
