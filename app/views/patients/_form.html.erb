@@ -1,0 +1,20 @@
+<% if @patient.errors.any? %>
+  <ul>
+    <% @patient.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+<%= form_with model: @patient do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :birth_date %>
+    <%= f.text_field :birth_date %>
+
+    <%= f.label :cpf %>
+    <%= f.text_field :cpf %>
+  </div>
+  <p><%= f.submit btn_description %></p>
+<% end %>
