@@ -18,7 +18,7 @@ feature 'Doctors', type: :feature do
       patient = Fabricate.create(:patient)
       appointment = Fabricate.create(:appointment)
 
-      find(:xpath, '/html/body/table/tbody/tr/td[5]/a').click
+      click_on 'Excluir'
       page.driver.browser.switch_to.alert.accept
       3.second
       expect(page).to have_content('Médico não pode ser excluído pois possui consultas agendadas')

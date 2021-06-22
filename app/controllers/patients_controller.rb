@@ -23,6 +23,11 @@ class PatientsController < ApplicationController
     render :edit
   end
 
+  def destroy
+    return redirect_to patients_path, notice: 'Paciente excluído com sucesso!' if @patient.destroy
+    render :index
+  end
+
   private
 
   def patient_params
