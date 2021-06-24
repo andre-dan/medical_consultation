@@ -1,0 +1,28 @@
+<% if @appointment.errors.any? %>
+  <ul>
+    <% @appointment.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+<%= form_with model: @appointment do |f| %>
+  <div class="field">
+    <%= f.label :starts_at %>
+    <%= f.time_field :starts_at %>
+  </div>
+  <div class="field">
+    <%= f.label :ends_at %>
+    <%= f.time_field :ends_at %>
+  </div>
+  <div class="field">  
+    <%= f.label :doctor_id %>
+    <%= f.select("doctor_id", @doctors_options, {include_blank: 'Selecione o Médico'}) %>
+  </div>
+  <div class="field">
+    <%= f.label :patient_id %>
+    <%= f.select("patient_id", @patients_options, {include_blank: 'Paciente ...'}) %>
+  </div>
+  <div class="actions">
+    <%= f.submit btn_description %>
+  </div>
+<% end %>
