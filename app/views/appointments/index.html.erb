@@ -1,0 +1,29 @@
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>  
+<% end %>
+<h1>Listagem de Consultas</h1>
+<% if @appointments.empty? %>
+  <h2>Não existe nenhum consulta cadastrado</h2>
+<% end %>
+<table>
+  <thead>
+    <tr>
+      <td>Horário Início</td>
+       <td>Horário Fim</td>
+        <td>Paciente</td>
+        <td>Médico</td>
+    </tr>
+    <tbody>
+      <% @appointments.each do |appointment|%>
+        <tr>
+          <td><%= appointment.starts_at.strftime('%I:%M:%S %p') %></td>
+           <td><%= appointment.ends_at.strftime('%I:%M:%S %p') %></td>
+           <td><%= appointment.patient.name %></td>
+           <td><%= appointment.doctor.name %></td>
+          <td><%= link_to "Editar", edit_appointment_path(appointment) %></td>
+          <td><%= link_to "Excluir", appointment, method: :delete, data: { confirm: 'Deseja realmente excluir'} %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </thead>
+</table>  
